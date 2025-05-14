@@ -1,32 +1,47 @@
-import { useState } from 'react';
-import * as Font from 'expo-font';
-import AppLoading from 'expo-app-loading'; // helps delay rendering until fonts load
-import SplashScreen from './screens/SplashScreen';
-import Navigation from './navigation';
+import React, { useState, useEffect } from 'react';
+import * as SplashScreen from 'expo-splash-screen';
+import { useFonts } from 'expo-font';
+import Navigation from './navigation'; // Your navigation component
 
+// Fetch fonts from your assets
 const fetchFonts = () => {
-  return Font.loadAsync({
-    Audiowide: require('./assets/fonts/Audiowide-Regular.ttf'),
+  return useFonts({
+    Audiowide: require('./assets/fonts/Audiowide-Regular.ttf'), // Replace with your font
   });
 };
 
 export default function App() {
-  const [fontsLoaded, setFontsLoaded] = useState(false);
-  const [showSplash, setShowSplash] = useState(true);
+  const [fontsLoaded] = useFonts({
+    Audiowide: require('./assets/fonts/Audiowide-Regular.ttf'),
+  });
+  
+  const [appIsReady, setAppIsReady] = useState(false); // Flag to track app readiness
 
-  if (!fontsLoaded) {
-    return (
-      <AppLoading
-        startAsync={fetchFonts}
-        onFinish={() => setFontsLoaded(true)}
-        onError={console.warn}
-      />
-    );
+  useEffect(() => {
+    // Keep splash screen visible until the app is ready
+    const prepare = async () => {
+      try {
+        await SplashScreen.preventAutoHideAsync(); // Prevent splash screen from hiding
+        // Load resources or data here if necessary
+      } catch (e) {
+        console.warn(e);
+      }
+    };
+
+    prepare();
+  }, []);
+
+  useEffect(() => {
+    if (fontsLoaded) {
+      // Once fonts are loaded, hide the splash screen
+      SplashScreen.hideAsync();
+      setAppIsReady(true);
+    }
+  }, [fontsLoaded]);
+
+  if (!appIsReady) {
+    return null; // You can show a loading screen here if necessary
   }
 
-  return showSplash ? (
-    <SplashScreen onFinish={() => setShowSplash(false)} />
-  ) : (
-    <Navigation />
-  );
+  return <Navigation />;
 }
