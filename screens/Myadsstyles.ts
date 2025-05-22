@@ -80,6 +80,20 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginVertical: 10,
   },
+  passwordContainer: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  borderWidth: 1,
+  borderColor: '#ccc',
+  borderRadius: 8,
+  paddingHorizontal: 10,
+  marginVertical: 10,
+},
+passwordInput: {
+  flex: 1,
+  height: 50,
+},
+
   
 });
 

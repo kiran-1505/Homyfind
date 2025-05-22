@@ -13,7 +13,7 @@ export default function SearchScreen() {
   useEffect(() => {
     const fetchPGs = async () => {
       try {
-        const snapshot = await getDocs(collection(db, "pgs"));
+        const snapshot = await getDocs(collection(db, "pgAds"));
         const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         setSuggestedPGs(data);
       } catch (err) {

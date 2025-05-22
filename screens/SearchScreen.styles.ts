@@ -18,7 +18,7 @@ export default StyleSheet.create({
   },
   title: {
     fontSize: 36,
-    fontFamily: 'Audiowide',
+    fontFamily: 'Audiowide', // Make sure this font is loaded via expo-font if used
     color: '#fff',
   },
   searchBar: {
@@ -47,8 +47,8 @@ export default StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginRight: 10,
-    width: 100,             // set fixed width (reduced)
-    height: 60, 
+    width: 100,             // fixed width
+    height: 60,
     justifyContent: 'center',
   },
   itemText: {
@@ -64,7 +64,11 @@ export default StyleSheet.create({
     padding: 15,
     marginHorizontal: 20,
     marginVertical: 8,
-    elevation: 1,
+    elevation: 1, // subtle shadow for Android
+    shadowColor: '#000', // optional for iOS
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
   },
   pgName: {
     fontWeight: 'bold',
