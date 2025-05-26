@@ -11,6 +11,7 @@ import MyAdsScreen from '../screens/MyAdsScreen';
 import LoginScreen from '../screens/LoginScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import PasswordResetScreen from '../screens/PasswordResetScreen';
+import AddAdScreen from '../screens/AddAdScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator(); // use createNativeStackNavigator
@@ -50,6 +51,7 @@ export default function Navigation() {
         <Stack.Screen name="SignUp" component={SignUpScreen} />
         <Stack.Screen name="PasswordReset" component={PasswordResetScreen} />
         <Stack.Screen name="Home" component={MyTabs} />
+        <Stack.Screen name="AddAd" component={AddAdScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

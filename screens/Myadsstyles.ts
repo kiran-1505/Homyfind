@@ -62,11 +62,18 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginTop: 8,
   },
-  imagePicker: {
-    backgroundColor: '#e0e0e0',
-    padding: 10,
+  imagePickerButton: {
+    backgroundColor: '#1e90ff',   // bright blue button
+    padding: 12,
     borderRadius: 8,
-    marginBottom: 16,
+    alignItems: 'center',
+    marginVertical: 12,
+  },
+
+  imagePickerText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 16,
   },
   imagePreview: {
     width: '100%',
@@ -92,6 +99,66 @@ const styles = StyleSheet.create({
 passwordInput: {
   flex: 1,
   height: 50,
+},
+addButton: {
+  backgroundColor: '#4CAF50',
+  padding: 14,
+  borderRadius: 8,
+  alignItems: 'center',
+  marginBottom: 16,
+},
+addButtonText: {
+  color: '#fff',
+  fontSize: 16,
+  fontWeight: 'bold',
+},
+logoutButton: {
+  backgroundColor: '#f44336',
+  padding: 14,
+  borderRadius: 8,
+  alignItems: 'center',
+  marginTop: 20,
+},
+logoutButtonText: {
+  color: '#fff',
+  fontSize: 16,
+  fontWeight: 'bold',
+},
+adItem: {
+  padding: 12,
+  backgroundColor: '#f2f2f2',
+  borderRadius: 8,
+  marginBottom: 10,
+},
+label: {
+  marginTop: 10,
+  marginBottom: 5,
+  fontWeight: 'bold',
+  fontSize: 16,
+},
+
+sharingButtonsContainer: {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  marginBottom: 15,
+},
+
+sharingButton: {
+  padding: 10,
+  backgroundColor: '#eee',
+  borderRadius: 8,
+  width: 50,
+  alignItems: 'center',
+},
+
+sharingButtonSelected: {
+  backgroundColor: '#4CAF50',
+},
+
+sharingButtonText: {
+  fontSize: 16,
+  fontWeight: 'bold',
+  color: '#000',
 },
 
   
